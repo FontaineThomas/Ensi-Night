@@ -46,31 +46,37 @@ public class Api_bdd {
 
     public static String get_question()
     {
+        Api_bdd.check_bdd();
         return Api_bdd.bdd.get_question();
     }
 
     public static String get_question(String cat)
     {
+        Api_bdd.check_bdd();
         return Api_bdd.bdd.get_question(cat);
     }
 
     public static String get_answer(String cat, String question)
     {
+        Api_bdd.check_bdd();
         return Api_bdd.bdd.get_answer(cat, question);
     }
 
     public static String get_answer(String question)
     {
+        Api_bdd.check_bdd();
         return Api_bdd.bdd.get_answer(question);
     }
 
     public static String[] get_proposition(String cat, String question)
     {
+        Api_bdd.check_bdd();
         return Api_bdd.bdd.get_proposition(cat, question);
     }
 
     public static String[] get_proposition(String question)
     {
+        Api_bdd.check_bdd();
         return Api_bdd.bdd.get_proposition(question);
     }
 
