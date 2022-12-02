@@ -3,7 +3,11 @@
 session_start();
 
 if (!isset($invisible_button)) {
-    $invisible_button = '';
+    $invisible_button = 'visible';
+}
+
+if (!isset($class_card)) {
+    $class_card = ' ';
 }
 
 $dbhost = 'magicalfubby.com';
@@ -45,7 +49,8 @@ if(isset($_POST['answered'])){
         if($_SESSION['currentplayer']+1 == $_SESSION['numberplayer']){
             $_SESSION['currentplayer'] = 0;
         }
-        $invisible_button = ' ';
+        $invisible_button = 'visible';
+        $class_card ="anim";
     }
 }
 

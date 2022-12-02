@@ -49,10 +49,13 @@
 .back, .back2 {
     background : #434343;
     color: white;
-    transform: rotateY( 180deg );
 }
 .game_card2 {
     z-index: -1;
+}
+
+.anim{
+    animation : anim_card;
 }
 
 .top-left {
@@ -124,4 +127,13 @@
     width: 15em;
     height: 6em;
     z-index: 6;
+}
+
+@keyframes anim_card {
+    from{
+
+    }
+    to{
+        rotateY( 180deg )
+    }
 }
