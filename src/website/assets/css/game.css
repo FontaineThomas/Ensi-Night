@@ -1,13 +1,13 @@
 @import 'https://fonts.googleapis.com/css?family=Lily+Script+One';
 
-.game_card {
+.game_card, .game_card2 {
     position: absolute;
     top: 50%;
     left: 150px;
     width: 201.6px;
     height: 328.6px;
-    margin: -150px;
     float: left;
+    margin: -150px;
     perspective: 500px;
 }
 
@@ -15,21 +15,25 @@
     height: 100vh;
 }
 
-.content {
+.game_card{
+    z-index: 999;
+}
+
+.content, .content2 {
     position: absolute;
     width: 100%;
     height: 100%;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
     transition: transform 1s;
     transform-style: preserve-3d;
 }
 
 .game_card:hover .content {
-    transform: rotateY( 180deg ) ;
-    transition: transform 0.5s;
+    transform:translateX(51em) translateY(-13em) rotateY( 180deg );
+    transition: transform 0.8s;
 }
 
-.front, .back {
+.front, .back , .front2, .back2 {
     position: absolute;
     height: 100%;
     width: 100%;
@@ -42,42 +46,45 @@
     backface-visibility: hidden;
 }
 
-.back {
+.back, .back2 {
     background : #434343;
     color: white;
     transform: rotateY( 180deg );
+}
+.game_card2 {
+    z-index: -1;
 }
 
 .top-left {
     position: absolute;
     top : 10px;
     left : 10px;
-    width: 100px;
-    height: 100px;
+    width: 10%;
+    height: 10%;
 }
 
 .top-right {
     position: absolute;
     top : 10px;
     right: 10px;
-    width: 100px;
-    height: 100px;
+    width: 10%;
+    height: 10%;
 }
 
 .bottom-right {
     position: absolute;
     bottom : 10px;
     right: 10px;
-    width: 100px;
-    height: 100px;
+    width: 10%;
+    height: 10%;
 }
 
 .bottom-left {
     position: absolute;
     bottom: 10px;
     left: 10px;
-    width: 100px;
-    height: 100px;
+    width: 10%;
+    height: 10%;
 }
 
 .player_score h6{
@@ -104,7 +111,7 @@
     left : 0;
     right: 0;
     bottom: 2px;
-    width: 100px;
+    width: 15%;
 }
 
 .response-tab tr, .response-tab td{
@@ -112,6 +119,6 @@
 }
 
 .responses{
-    width: 150px;
-    height: 150px;
+    width: 15em;
+    height: 6em;
 }

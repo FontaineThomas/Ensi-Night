@@ -35,7 +35,20 @@
             </div>
         </div>
     </div>
+    <div class="container2">
+        <div class="row justify-content-center">
+            <div class="game_card2 deck2">
+                <div class="content2">
+                    <div class="front2"></div>
+                    <div class="back2">
+                        Front
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
+
 <div class="score">
     <div class="center draw_card">
         <input type="submit" class="btn btn-dark center_button" value="Tirer une carte" name="draw">
