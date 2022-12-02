@@ -36,12 +36,12 @@ if(isset($_POST['draw'])){
     if ($filename == 'quiz') {
         $result = $pdo->query("SELECT * FROM `" . $dbname . "`.`" . $tablename . " ORDER BY rand() LIMIT 1;");
     }
-    $result = $result->fetch();
-    $_SESSION['awnser1'] = $result[2];
-    $_SESSION['awnser2'] = $result[3];
-    $_SESSION['awnser3'] = $result[4];
-    $_SESSION['awnser4'] = $result[5];
-    $_SESSION['rightanswer'] = $result[6];
+    $cards = $result->fetch();
+    $_SESSION['awnser1'] = $cards[2];
+    $_SESSION['awnser2'] = $cards[3];
+    $_SESSION['awnser3'] = $cards[4];
+    $_SESSION['awnser4'] = $cards[5];
+    $_SESSION['rightanswer'] = $cards[6];
     $invisible_button = '';
     affichage_response();
 }
@@ -59,7 +59,7 @@ if(isset($_POST['answered'])){
         $invisible_button = '
 <div class="center_div draw_card">
     <form method="post">
-        <input type="submit" class="btn btn-dark center_button" visibility="" value="Tirer une carte" name="draw">
+        <input type="submit" class="btn btn-dark center_button" value="Tirer une carte" name="draw">
     </form>
 </div>';
         $class_card ="anim";
