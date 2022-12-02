@@ -3,7 +3,13 @@
 session_start();
 
 if (!isset($invisible_button)) {
-    $invisible_button = 'visible';
+    $invisible_button = '
+    <div class="center_div draw_card">
+    <form method="post">
+        <input type="submit" class="btn btn-dark center_button" visibility="" value="Tirer une carte" name="draw">
+    </form>
+    </div>
+    ';
 }
 
 if (!isset($class_card)) {
@@ -35,7 +41,7 @@ if(isset($_POST['draw'])){
     $_SESSION['awnser3'] = $result[4];
     $_SESSION['awnser4'] = $result[5];
     $_SESSION['rightanswer'] = $result[6];
-    $invisible_button = 'hidden';
+    $invisible_button = '';
     affichage_response();
 }
 
@@ -49,7 +55,12 @@ if(isset($_POST['answered'])){
         if($_SESSION['currentplayer']+1 == $_SESSION['numberplayer']){
             $_SESSION['currentplayer'] = 0;
         }
-        $invisible_button = 'visible';
+        $invisible_button = '
+<div class="center_div draw_card">
+    <form method="post">
+        <input type="submit" class="btn btn-dark center_button" visibility="" value="Tirer une carte" name="draw">
+    </form>
+</div>';
         $class_card ="anim";
     }
 }
