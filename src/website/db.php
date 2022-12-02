@@ -26,7 +26,13 @@ if(isset($_POST['draw'])){
     if ($filename == 'quiz') {
         $result = $pdo->query("SELECT * FROM `" . $dbname . "`.`" . $tablename . " ORDER BY rand() LIMIT 1;");
     }
+    $_SESSION['awnser1'] = $result[2];
+    $_SESSION['awnser2'] = $result[3];
+    $_SESSION['awnser3'] = $result[4];
+    $_SESSION['awnser4'] = $result[5];
     $_SESSION['rightanswer'] = $result[6];
+    $invisible_button = 'hidden';
+    affichage_response();
 }
 
 if(isset($_POST['answered'])){
@@ -39,6 +45,7 @@ if(isset($_POST['answered'])){
         if($_SESSION['currentplayer']+1 == $_SESSION['numberplayer']){
             $_SESSION['currentplayer'] = 0;
         }
+        $invisible_button = ' ';
     }
 }
 
@@ -46,18 +53,30 @@ function affichage_response(){
     echo '<table class="response-tab">
     <tr>
         <td>
-            <input type="submit" class="btn btn-dark responses" value="Reponse" name="reponse">
+            <form>
+                <input type="submit" class="btn btn-dark responses" value="' . $_SESSION['awnser1'] . '" name="answered">
+                <input type="disabled" hidden class="btn btn-dark responses" value="1" name="reponse">
+            </form>
         </td>
         <td>
-            <input type="submit" class="btn btn-dark responses" value="Reponse" name="reponse">
+            <form>
+                <input type="submit" class="btn btn-dark responses" value="' . $_SESSION['awnser2'] . '" name="answered">
+                <input type="disabled" hidden class="btn btn-dark responses" value="2" name="reponse">
+            </form>
         </td>
     </tr>
     <tr>
         <td>
-            <input type="submit" class="btn btn-dark responses" value="Reponse" name="reponse">
+            <form>
+                <input type="submit" class="btn btn-dark responses" value="' . $_SESSION['awnser3'] . '" name="answered">
+                <input type="disabled" hidden class="btn btn-dark responses" value="3" name="reponse">
+            </form>
         </td>
         <td>
-            <input type="submit" class="btn btn-dark responses" value="Reponse" name="reponse">
+            <form>
+                <input type="submit" class="btn btn-dark responses" value="' . $_SESSION['awnser4'] . '" name="answered">
+                <input type="disabled" hidden class="btn btn-dark responses" value="4" name="reponse">
+            </form>
         </td>
     </tr>
 </table>';

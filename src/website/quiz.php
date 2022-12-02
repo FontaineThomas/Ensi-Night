@@ -60,7 +60,9 @@ if (!isset($invisible_button)) {
 
 <div class="score">
     <div class="center draw_card">
-        <input type="submit" class="btn btn-dark center_button <?php $invisible_button ?>" value="Tirer une carte" name="draw">
+        <form method="post">
+            <input type="submit" class="btn btn-dark center_button" <?php $invisible_button ?> value="Tirer une carte" name="draw">
+        </form>
     </div>
     <div class="top-left player_score">
         <div>
