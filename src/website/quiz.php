@@ -1,9 +1,6 @@
 <?php
 
-#include 'db.php'
-if (!isset($invisible_button)) {
-    $invisible_button = '';
-}
+include './db.php';
 
 ?>
 
