@@ -3437,7 +3437,8 @@ textarea.form-control-custom+i {
 }
 
 #toto {
-    font-size: 6px; text-decoration: none;
+    font-size: 6px;
+    text-decoration: none;
 }
 
 #toto:link { text-decoration: none; }
@@ -3448,4 +3449,20 @@ textarea.form-control-custom+i {
 
 #toto:active { text-decoration: none; }
 
+.rotate {
+    color: black;
+    background-color: black;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
 
+.rotate:hover{
+    background-color: white;
+}
+
+.rotate::selection{
+    background-color: white;
+}

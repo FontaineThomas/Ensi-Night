@@ -3,8 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Easter egg</title>
+    <link href="assets/css/style.css" rel="stylesheet">
 </head>
 <body>
-  <h1>Bravo</h1>
+    <span id="generate"></span>
+    <script>
+        var chaine = "Bravo, tu as trouvé le point G de ce site. Comme quoi on peut profiter tout en se protégeant.";
+        var output = "";
+        for (var i=0; i<chaine.length; i++){
+            output += "<span class='rotate'>"+chaine[i]+"</span>";
+        }
+        document.getElementById("generate").innerHTML = output;
+    </script>
+
 </body>
 </html>
