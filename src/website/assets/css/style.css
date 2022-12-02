@@ -3435,3 +3435,17 @@ textarea.form-control-custom+i {
 .copyright .cp_menu li:last-child a:after {
     display: none;
 }
+
+#toto {
+    font-size: 6px; text-decoration: none;
+}
+
+#toto:link { text-decoration: none; }
+
+#toto:visited { text-decoration: none; }
+
+#toto:hover { text-decoration: none; }
+
+#toto:active { text-decoration: none; }
+
+
