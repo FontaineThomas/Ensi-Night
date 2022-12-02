@@ -1,3 +1,12 @@
+<?php
+
+#include 'db.php'
+if (!isset($invisible_button)) {
+    $invisible_button = '';
+}
+
+?>
+
 <!DOCTYPE HTML>
 <html lang="zxx">
 
@@ -51,44 +60,34 @@
 
 <div class="score">
     <div class="center draw_card">
-        <input type="submit" class="btn btn-dark center_button" value="Tirer une carte" name="draw">
+        <input type="submit" class="btn btn-dark center_button <?php $invisible_button ?>" value="Tirer une carte" name="draw">
     </div>
     <div class="top-left player_score">
-        <h6>JOUEUR 1</h6>
-        <h6>00</h6>
+        <div>
+            <h6>JOUEUR 1</h6>
+            <h6>00</h6>
+        </div>
     </div>
     <div class="top-right player_score">
-        <h6>JOUEUR 2</h6>
-        <h6>00</h6>
+        <div>
+            <h6>JOUEUR 2</h6>
+            <h6>00</h6>
+        </div>
     </div>
     <div class="bottom-left player_score">
-        <h6>JOUEUR 3</h6>
-        <h6>00</h6>
+        <div>
+            <h6>JOUEUR 3</h6>
+            <h6>00</h6>
+        </div>
     </div>
     <div class="bottom-right player_score">
-        <h6>JOUEUR 4</h6>
-        <h6>00</h6>
+        <div>
+            <h6>JOUEUR 4</h6>
+            <h6>00</h6>
+        </div>
     </div>
 </div>
 
-<table class="response-tab">
-    <tr>
-        <td>
-            <input type="submit" class="btn btn-dark responses" value="Reponse" name="reponse">
-        </td>
-        <td>
-            <input type="submit" class="btn btn-dark responses" value="Reponse" name="reponse">
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <input type="submit" class="btn btn-dark responses" value="Reponse" name="reponse">
-        </td>
-        <td>
-            <input type="submit" class="btn btn-dark responses" value="Reponse" name="reponse">
-        </td>
-    </tr>
-</table>
 </body>
 
 </html>

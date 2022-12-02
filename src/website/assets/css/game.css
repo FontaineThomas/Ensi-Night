@@ -29,7 +29,7 @@
 }
 
 .game_card:hover .content {
-    transform:translateX(51em) translateY(-13em) rotateY( 180deg );
+    transform: rotateY( 180deg );
     transition: transform 0.8s;
 }
 
