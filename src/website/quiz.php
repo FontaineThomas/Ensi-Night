@@ -79,18 +79,6 @@
 
 <div class="df-cursor"></div>
 <div class="df-cursor2"></div>
-<!-- Scripts -->
-<script src="assets/js/plugins/jquery-3.6.0.min.js"></script>
-<script src="assets/js/plugins/bootstrap.bundle.min.js"></script>
-<script src="assets/js/plugins/particles.js"></script>
-<script src="assets/js/plugins/slick.min.js"></script>
-<script src="assets/js/plugins/slick-animation.min.js"></script>
-<script src="assets/js/plugins/jquery.magnific-popup.min.js"></script>
-<script src="assets/js/plugins/jquery.counterup.min.js"></script>
-<script src="assets/js/plugins/jquery.inview.min.js"></script>
-<script src="assets/js/plugins/cursor.min.js"></script>
-<script src="assets/js/plugins/wow.min.js"></script>
-<script src="assets/js/custom.js"></script>
 </body>
 
 </html>
