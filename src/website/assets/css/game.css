@@ -33,6 +33,10 @@
     transition: transform 0.8s;
 }
 
+.game_card .rotated{
+    animation: 0s ease-out 0s 1 slideInFromLeft forwards;
+}
+
 .front, .back , .front2, .back2 {
     position: absolute;
     height: 100%;
@@ -122,4 +126,13 @@
 .responses{
     width: 15em;
     height: 6em;
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: rotateY( 0deg );
+    }
+    to {
+        transform: rotateY( 180deg );
+    }
 }

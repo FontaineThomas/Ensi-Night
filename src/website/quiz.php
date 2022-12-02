@@ -32,7 +32,7 @@ include './db.php';
     <div class="container">
         <div class="row justify-content-center">
             <div class="game_card deck">
-                <div class="content">
+                <div class="content rotated">
                     <div class="front"></div>
                     <div class="back">
                         Front

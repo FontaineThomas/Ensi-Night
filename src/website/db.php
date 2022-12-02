@@ -36,6 +36,7 @@ if(isset($_POST['draw'])){
     if ($filename == 'quiz') {
         $result = $pdo->query("SELECT * FROM `" . $dbname . "`.`" . $tablename . " ORDER BY rand() LIMIT 1;");
     }
+    $result = $result->fetch();
     $_SESSION['awnser1'] = $result[2];
     $_SESSION['awnser2'] = $result[3];
     $_SESSION['awnser3'] = $result[4];
@@ -48,7 +49,7 @@ if(isset($_POST['draw'])){
 if(isset($_POST['answered'])){
     $filename = basename($_SERVER['REQUEST_URI'], '?' . $_SERVER['QUERY_STRING']);
     if ($filename == 'quiz') {
-        if($_POST['answered'] == $_SESSION['rightanswer']){
+        if($_POST['reponse'] == $_SESSION['rightanswer']){
             $_SESSION[$_SESSION['currentplayer']]++;
         }
         if(isset($_SESSION['']))
