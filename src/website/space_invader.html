@@ -626,8 +626,8 @@
                     if (player.lives === 0) {
                         var name=prompt("Please enter your name","Harry Potter");
                         if (name!=null){
-                            const myRequest = new Request('space_invader_score.php?name='+name+'&score='+player.score);
-                            const myURL = myRequest.url;
+                            const myRequest = new Request('./space_invader_score.php?name='+name+'&score='+player.score);
+                            fetch(myRequest);
                         //    TODO check
                         }
                         hasGameStarted = false;
