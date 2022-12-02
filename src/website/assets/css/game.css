@@ -94,7 +94,7 @@
     text-align: center;
 }
 
-.center_button, center_div{
+.center_div{
     position: absolute;
     top: 5px;
     width: 10em;
@@ -102,6 +102,7 @@
     margin-right: auto;
     left : 0;
     right: 0;
+    z-index: 5;
 }
 
 .response-tab{
@@ -116,9 +117,11 @@
 
 .response-tab tr, .response-tab td{
     border : none !important;
+    z-index: 5;
 }
 
 .responses{
     width: 15em;
     height: 6em;
+    z-index: 6;
 }
