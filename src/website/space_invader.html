@@ -98,15 +98,16 @@
         var IS_CHROME = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
         var CANVAS_WIDTH = 640;
         var CANVAS_HEIGHT = 640;
-        var SPRITE_SHEET_SRC = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAAEACAYAAAADRnAGAAACGUlEQVR42u3aSQ7CMBAEQIsn8P+/hiviAAK8zFIt5QbELiTHmfEYE3L9mZE9AAAAqAVwBQ8AAAD6THY5CgAAAKbfbPX3AQAAYBEEAADAuZrC6UUyfMEEAIBiAN8OePXnAQAAsLcmmKFPAQAAgHMbm+gbr3Sdo/LtcAAAANR6GywPAgBAM4D2JXAAABoBzBjA7AmlOx8AAEAzAOcDAADovTc4vQim6wUCABAYQG8QAADd4dPd2fRVYQAAANQG0B4HAABAawDnAwAA6AXgfAAAALpA2uMAAABwPgAAgPoAM9Ci/R4AAAD2dmqcEQIAIC/AiQGuAAYAAECcRS/a/cJXkUf2AAAAoBaA3iAAALrD+gIAAADY9baX/nwAAADNADwFAADo9YK0e5FMX/UFACA5QPSNEAAAAHKtCekmDAAAAADvBljtfgAAAGgMMGOrunvCy2uCAAAACFU6BwAAwF6AGQPa/XsAAADYB+B8AAAAtU+ItD4OAwAAAFVhAACaA0T7B44/BQAAANALwGMQAAAAADYO8If2+P31AgAAQN0SWbhFDwCAZlXgaO1xAAAA1FngnA8AACAeQPSNEAAAAM4CnC64AAAA4GzN4N9NSfgKEAAAAACszO26X8/X6BYAAAD0Anid8KcLAAAAAAAAAJBnwNEvAAAA9Jns1ygAAAAAAAAAAAAAAAAAAABAQ4COCENERERERERERBrnAa1sJuUVr3rsAAAAAElFTkSuQmCC';
+        var SPRITE_SHEET_SRC_EVEN = 'assets/images/games/space_invader_even.png';
+        var SPRITE_SHEET_SRC_ODD = 'assets/images/games/space_invader_odd.png';
         var LEFT_KEY = 37;
         var RIGHT_KEY = 39;
         var SHOOT_KEY = 88;
         var TEXT_BLINK_FREQ = 500;
-        var PLAYER_CLIP_RECT = { x: 0, y: 204, w: 62, h: 32 };
-        var ALIEN_BOTTOM_ROW = [ { x: 0, y: 0, w: 51, h: 34 }, { x: 0, y: 102, w: 51, h: 34 }];
-        var ALIEN_MIDDLE_ROW = [ { x: 0, y: 137, w: 50, h: 33 }, { x: 0, y: 170, w: 50, h: 34 }];
-        var ALIEN_TOP_ROW = [ { x: 0, y: 68, w: 50, h: 32 }, { x: 0, y: 34, w: 50, h: 32 }];
+        var PLAYER_CLIP_RECT = { x: 0, y: 192, w: 64, h: 64 };
+        var ALIEN_BOTTOM_ROW = [ { x: 0, y: 0, w: 64, h: 64 }, { x: 0, y: 0, w: 64, h: 64 }];
+        var ALIEN_MIDDLE_ROW = [ { x: 0, y: 64, w: 64, h: 64 }, { x: 0, y: 64, w: 64, h: 64 }];
+        var ALIEN_TOP_ROW = [ { x: 0, y: 128, w: 64, h: 64 }, { x: 0, y: 128, w: 64, h: 64 }];
         var ALIEN_X_MARGIN = 40;
         var ALIEN_SQUAD_WIDTH = 11 * ALIEN_X_MARGIN;
 
@@ -242,7 +243,7 @@
             _drawImage: function() {
                 ctx.save();
                 ctx.transform(this.scale.x, 0, 0, this.scale.y, this.position.x, this.position.y);
-                ctx.drawImage(this.img, this.clipRect.x, this.clipRect.y, this.clipRect.w, this.clipRect.h, ~~(0.5 + -this.clipRect.w*0.5), ~~(0.5 + -this.clipRect.h*0.5), this.clipRect.w, this.clipRect.h);
+                ctx.drawImage(this.img, this.clipRect.x, this.clipRect.y, 64, 64, ~~(0.5 + -this.clipRect.w*0.5), ~~(0.5 + -this.clipRect.h*0.5), this.clipRect.w, this.clipRect.h);
                 ctx.restore();
 
             },
@@ -484,7 +485,7 @@
 
             // create our main sprite sheet img
             spriteSheetImg = new Image();
-            spriteSheetImg.src = SPRITE_SHEET_SRC;
+            spriteSheetImg.src = SPRITE_SHEET_SRC_ODD;
             preDrawImages();
 
             // add event listeners and initially resize
@@ -584,6 +585,10 @@
                     alienCount--;
                     if (alienCount < 1) {
                         wave++;
+                        if (wave%2==0)
+                            spriteSheetImg.src = SPRITE_SHEET_SRC_EVEN;
+                        else
+                            spriteSheetImg.src = SPRITE_SHEET_SRC_ODD;
                         setupAlienFormation();
                     }
                     return;
@@ -628,7 +633,6 @@
                         if (name!=null){
                             const myRequest = new Request('./space_invader_score.php?name='+name+'&score='+player.score);
                             fetch(myRequest);
-                        //    TODO check
                         }
                         hasGameStarted = false;
                     } else {
@@ -686,8 +690,8 @@
             ctx.fillStyle = '#02ff12';
             ctx.fillRect(0, CANVAS_HEIGHT - 30, CANVAS_WIDTH, 2);
             fillText(player.lives + ' x ', 10, CANVAS_HEIGHT - 7.5, 'white', 20);
-            ctx.drawImage(spriteSheetImg, player.clipRect.x, player.clipRect.y, player.clipRect.w,
-                player.clipRect.h, 45, CANVAS_HEIGHT - 23, player.clipRect.w * 0.5,
+            ctx.drawImage(spriteSheetImg, 0, 192, 64,
+                64, 45, CANVAS_HEIGHT - 23, player.clipRect.w * 0.5,
                 player.clipRect.h * 0.5);
             fillText('CREDIT: ', CANVAS_WIDTH - 115, CANVAS_HEIGHT - 7.5);
             fillCenteredText('SCORE: ' + player.score, CANVAS_WIDTH/2, 20);
