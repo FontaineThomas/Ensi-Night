@@ -94,7 +94,7 @@
     text-align: center;
 }
 
-.center_button{
+.center_button, center_div{
     position: absolute;
     top: 5px;
     width: 10em;
