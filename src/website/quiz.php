@@ -76,9 +76,6 @@
         </td>
     </tr>
 </table>
-
-<div class="df-cursor"></div>
-<div class="df-cursor2"></div>
 </body>
 
 </html>
